@@ -415,6 +415,27 @@
     }
 
     /* ---------- Students ---------- */
+    /* 外層容器：強制單一行，禁止換行 */
+    .lab-media-header {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap; /* 強制不換行 */
+      gap: 10px;         /* 媒體之間的間隔，若不需要緊貼可設為 0 */
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    /* 內部四個媒體：強制平分，各佔 1/4 */
+    .featured-media {
+      flex: 1 1 0;       /* 讓 4 個元素精準平分 1/4 寬度 */
+      min-width: 0;      /* 防止影片/圖片原生尺寸撐開容器導致換行 */
+      height: 170px;     /* 👈 自由指定你想要的固定高度 */
+      object-fit: contain; /* 保持畫面比例填滿指定長寬，絕不拉伸變形 */
+      background-color: #000;
+      border-radius: 6px;
+      display: block;
+    }
+
     .recruit-card {
       display: flex;
       flex-wrap: wrap;
@@ -831,10 +852,21 @@
 
     <!-- ================= STUDENTS ================= -->
     <section id="students" class="page pub-section" aria-label="Students">
-     <!--    <header class="section-title">
-          <h1>Students</h1>
-        </header>
-    -->
+        <div class="lab-media-header">
+          <video class="featured-media" autoplay loop muted playsinline>
+            <source src="images/segmentation.mp4" type="video/mp4">
+          </video>
+
+          <img class="featured-media" src="images/PINNs.png" alt="展示圖片">
+
+          <video class="featured-media" autoplay loop muted playsinline>
+            <source src="images/underwater.mp4" type="video/mp4">
+          </video>
+
+          <video class="featured-media" autoplay loop muted playsinline>
+            <source src="images/enhancement.mp4" type="video/mp4">
+          </video>
+        </div>
         <div class="recruit-card">
           <span class="tag">招生狀態</span>
           <span>Lab 116 學年：博士生 0/1、碩士生 0/2</span>
